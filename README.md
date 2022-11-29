@@ -1,4 +1,4 @@
-# Library management system implementation using C++ Object Oriented Programming & File Handling
+# Banking management system implementation using C++ Object Oriented Programming & File Handling
 
 ## Following classes are used in this project:
 - Account
