@@ -1,0 +1,29 @@
+The application is test by running the following test cases:
+Test case 1:  
+1
+admin
+1
+Tom Harry 
+tom_harry 
+14578 
+tom@gmail.com
+1
+Latham
+latham
+123567
+latham@gmail.com
+1
+Rhino Tape
+rhino_tape
+123456
+rhino@gmail.com
+6
+2
+2
+tom_harry
+14578
+1
+1200
+1
+100
+2
