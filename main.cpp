@@ -318,10 +318,10 @@ class Database{
     ifstream accountRead;
     public:
     Database(){
-        customerWrite.open("customer.txt", ios::app);
-        customerRead.open("customer.txt");
-        accountWrite.open("account.txt", ios::app);
-        accountRead.open("account.txt");
+        customerWrite.open("customer.dat", ios::app);
+        customerRead.open("customer.dat");
+        accountWrite.open("account.dat", ios::app);
+        accountRead.open("account.dat");
     }
     ~Database(){
         customerWrite.close();
@@ -343,7 +343,7 @@ class Database{
             string time, type, description;
             float amount, balance;
             ifstream transactionRead;
-            transactionRead.open(bank.getCustomer(i).getAccount().getAccountNumber() + ".txt");
+            transactionRead.open(bank.getCustomer(i).getAccount().getAccountNumber() + ".dat");
             while(transactionRead >> time >> type >> amount >> balance >> description){
                 Transaction transaction(time, type, amount, balance, description);
                 bank.getCustomer(i).getTransactions().push_back(transaction);
@@ -356,19 +356,19 @@ class Database{
     }
     void addTransaction(Customer customer, Transaction transaction){
         ofstream transactionWrite;
-        transactionWrite.open(to_string(customer.getAccount().getAccountNumber()) + ".txt", ios::app);
+        transactionWrite.open(to_string(customer.getAccount().getAccountNumber()) + ".dat", ios::app);
         transactionWrite  << transaction.getTime() << " " << transaction.getType() << " " << transaction.getAmount() << " " << transaction.getBalance() << " " << transaction.getDescription() << endl;
         transactionWrite.close();
     }
     void deleteCustomer(Customer customer){
         ofstream tempCustomerWrite;
-        tempCustomerWrite.open("tempCustomer.txt");
+        tempCustomerWrite.open("tempCustomer.dat");
         ifstream tempCustomerRead;
-        tempCustomerRead.open("tempCustomer.txt");
+        tempCustomerRead.open("tempCustomer.dat");
         ofstream tempAccountWrite;
-        tempAccountWrite.open("tempAccount.txt");
+        tempAccountWrite.open("tempAccount.dat");
         ifstream tempAccountRead;
-        tempAccountRead.open("tempAccount.txt");
+        tempAccountRead.open("tempAccount.dat");
         string name, username, password, email;
         int accountNumber;
         float balance;
@@ -383,24 +383,24 @@ class Database{
         customerRead.close();
         accountWrite.close();
         accountRead.close();
-        remove("customer.txt");
-        remove("account.txt");
-        rename("tempCustomer.txt", "customer.txt");
-        rename("tempAccount.txt", "account.txt");
-        customerWrite.open("customer.txt", ios::app);
-        customerRead.open("customer.txt");
-        accountWrite.open("account.txt", ios::app);
-        accountRead.open("account.txt");
+        remove("customer.dat");
+        remove("account.dat");
+        rename("tempCustomer.dat", "customer.dat");
+        rename("tempAccount.dat", "account.dat");
+        customerWrite.open("customer.dat", ios::app);
+        customerRead.open("customer.dat");
+        accountWrite.open("account.dat", ios::app);
+        accountRead.open("account.dat");
     }
     void changePassword(Customer customer, string newPassword){
         ofstream tempCustomerWrite;
-        tempCustomerWrite.open("tempCustomer.txt");
+        tempCustomerWrite.open("tempCustomer.dat");
         ifstream tempCustomerRead;
-        tempCustomerRead.open("tempCustomer.txt");
+        tempCustomerRead.open("tempCustomer.dat");
         ofstream tempAccountWrite;
-        tempAccountWrite.open("tempAccount.txt");
+        tempAccountWrite.open("tempAccount.dat");
         ifstream tempAccountRead;
-        tempAccountRead.open("tempAccount.txt");
+        tempAccountRead.open("tempAccount.dat");
         string name, username, password, email;
         int accountNumber;
         float balance;
@@ -419,14 +419,14 @@ class Database{
         customerRead.close();
         accountWrite.close();
         accountRead.close();
-        remove("customer.txt");
-        remove("account.txt");
-        rename("tempCustomer.txt", "customer.txt");
-        rename("tempAccount.txt", "account.txt");
-        customerWrite.open("customer.txt", ios::app);
-        customerRead.open("customer.txt");
-        accountWrite.open("account.txt", ios::app);
-        accountRead.open("account.txt");
+        remove("customer.dat");
+        remove("account.dat");
+        rename("tempCustomer.dat", "customer.dat");
+        rename("tempAccount.dat", "account.dat");
+        customerWrite.open("customer.dat", ios::app);
+        customerRead.open("customer.dat");
+        accountWrite.open("account.dat", ios::app);
+        accountRead.open("account.dat");
     }
 
 };
@@ -756,6 +756,6 @@ int main()
 Ques - How to open a file with read and write both permission in C++?
 Ans - 
     ofstream fout;
-    fout.open("file.txt", ios::out | ios::app);
+    fout.open("file.dat", ios::out | ios::app);
     fout.close();
 */

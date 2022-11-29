@@ -1,3 +1,0 @@
-Tom Harry  tom_harry 14578 tom@gmail.com
-Latham latham 123567 latham@gmail.com
-Rhino Tape rhino_tape 123456 rhino@gmail.com
